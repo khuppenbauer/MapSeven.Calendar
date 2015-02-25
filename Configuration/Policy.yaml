@@ -1,0 +1,11 @@
+
+resources:
+  methods:
+    MapSeven_Calendar_Calendar: 'method(MapSeven\Calendar\Controller\CalendarController->(list)Action())'
+    MapSeven_Calendar_Backend_Module_Management_Calendar: 'method(MapSeven\Calendar\Controller\Module\Management\CalendarController->(index|update)Action())'
+
+acls:
+  Everybody:
+    methods:
+      MapSeven_Calendar_Calendar: GRANT
+      MapSeven_Calendar_Backend_Module_Management_Calendar: GRANT

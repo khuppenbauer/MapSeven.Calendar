@@ -1,0 +1,36 @@
+<script>
+
+    $(document).ready(function() {
+
+        $('#calendar').fullCalendar({
+
+            //
+            googleCalendarApiKey: '{settings.googleApiKey}',
+
+            eventSources: [
+                <f:for each="{node.properties.googleCalendars}" as="googleCalendar" iteration="iterator">
+                    <![CDATA[{]]>
+                        googleCalendarId: '{googleCalendar}'
+                    }<f:if condition="{iterator.isLast}"><f:else>,</f:else></f:if>
+                </f:for>
+            ],
+
+            eventClick: function(event) {
+                // opens events in a popup window
+                window.open(event.url, 'gcalevent', 'width=700,height=600');
+                return false;
+            },
+
+            loading: function(bool) {
+                $('#loading').toggle(bool);
+            }
+
+        });
+
+    });
+
+</script>
+
+<div id='loading'>loading...</div>
+
+<div id='calendar'></div>

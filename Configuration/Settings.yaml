@@ -1,0 +1,29 @@
+
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        MapSeven.Calendar: true
+    nodeTypes:
+      groups:
+        calendar:
+          position: 'after plugins'
+          label: Calendar
+    modules:
+      management:
+        submodules:
+          calendar:
+            label: Calendar
+            controller: \MapSeven\Calendar\Controller\Module\Management\CalendarController
+            description: 'Configure Google Calendar'
+            icon: icon-calendar
+            actions:
+              index:
+                label: 'Configure calendar'
+                title: 'Configure calendar'
+MapSeven:
+  Calendar:
+    keyFilePath: %FLOW_PATH_DATA%Persistent/GoogleApiKey/
+    googleApiKey: null
+    emailAddress: null
+    keyFileName: null

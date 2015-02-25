@@ -1,0 +1,36 @@
+namespace: TypoScript=TYPO3.TypoScript
+
+page = Page {
+	head {
+		stylesheets {
+			lightbox = TypoScript:Template {
+				@position = 'end'
+				templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
+				sectionName = 'stylesheets'
+			}
+		}
+	}
+
+	body {
+		javascripts {
+			lightbox = TypoScript:Template {
+				@position = 'end'
+				templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
+				sectionName = 'bodyScripts'
+			}
+		}
+	}
+}
+
+prototype(MapSeven.Calendar:Calendar) {
+	settings = ${Configuration.setting('MapSeven.Calendar')}
+}
+
+prototype(MapSeven.Calendar:List) < prototype(TYPO3.Neos:Plugin)  {
+	settings = ${Configuration.setting('MapSeven.Calendar')}
+	package = 'MapSeven.Calendar'
+	controller = 'Calendar'
+	action = 'list'
+}
+
+

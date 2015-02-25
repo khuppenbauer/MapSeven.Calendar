@@ -1,0 +1,70 @@
+'MapSeven.Calendar:Calendar':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'MapSeven.Calendar:CalendarMixin'
+  ui:
+    label: 'Calendar View'
+    group: 'calendar'
+    icon: 'icon-calendar'
+    inspector:
+      groups:
+        'settings':
+          label: 'Calendar Settings'
+
+'MapSeven.Calendar:List':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'MapSeven.Calendar:CalendarMixin'
+  ui:
+    label: 'Calendar List'
+    group: 'calendar'
+    icon: 'icon-calendar'
+    inspector:
+      groups:
+        'settings':
+          label: 'Calendar Settings'
+  properties:
+    maxResults:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'maxResults'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'settings'
+    maxDays:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'maxDays'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'settings'
+    orderBy:
+      type: string
+      defaultValue: 'startTime'
+      ui:
+        label: 'Sorting'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'settings'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              'startTime':
+                label: 'Starttime'
+              'updated':
+                label: 'Updated'
+
+'MapSeven.Calendar:CalendarMixin':
+  abstract: TRUE
+  properties:
+    googleCalendars:
+      type: array
+      ui:
+        label: 'Google Calendars'
+        inspector:
+          group: 'settings'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            dataSourceIdentifier: 'mapseven-calendar'

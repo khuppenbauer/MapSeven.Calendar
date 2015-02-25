@@ -1,0 +1,8 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<ul>
+    <f:for each="{events}" as="event">
+        <li>
+            {event.dateTime -> f:format.date(localeFormatType: 'dateTime', forceLocale: 'de_DE')} {event.summary}
+        </li>
+    </f:for>
+</ul>
