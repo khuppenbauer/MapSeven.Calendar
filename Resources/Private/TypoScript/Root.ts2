@@ -3,7 +3,7 @@ namespace: TypoScript=TYPO3.TypoScript
 page = Page {
 	head {
 		stylesheets {
-			lightbox = TypoScript:Template {
+			calendar = TypoScript:Template {
 				@position = 'end'
 				templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
 				sectionName = 'stylesheets'
@@ -13,7 +13,7 @@ page = Page {
 
 	body {
 		javascripts {
-			lightbox = TypoScript:Template {
+			calendar = TypoScript:Template {
 				@position = 'end'
 				templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
 				sectionName = 'bodyScripts'
