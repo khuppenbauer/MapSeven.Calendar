@@ -48,6 +48,7 @@ class CalendarController extends ActionController {
 		$properties = $node->getProperties();
 		$optParams['singleEvents'] = TRUE;
 		$optParams['orderBy'] = $properties['orderBy'];
+		$optParams['timeMin'] = date("c", time());
 		if (!empty($properties['maxDays'])) {
 			$timestamp = strtotime("+" . $properties['maxDays'] . " day");
 			$optParams['timeMax'] = date("c", $timestamp);
