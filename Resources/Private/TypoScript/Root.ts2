@@ -4,6 +4,7 @@ page = Page {
 	head {
 		stylesheets {
 			calendar = TypoScript:Template {
+				@if.hasMap = ${q(node).find('[instanceof MapSeven.Calendar:Calendar]').is()}
 				@position = 'end'
 				templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
 				sectionName = 'stylesheets'
@@ -14,6 +15,7 @@ page = Page {
 	body {
 		javascripts {
 			calendar = TypoScript:Template {
+				@if.hasMap = ${q(node).find('[instanceof MapSeven.Calendar:Calendar]').is()}
 				@position = 'end'
 				templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
 				sectionName = 'bodyScripts'
