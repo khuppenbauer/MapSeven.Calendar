@@ -1,70 +1,69 @@
+
 'MapSeven.Calendar:Calendar':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'MapSeven.Calendar:CalendarMixin'
+    'TYPO3.Neos:Content': true
+    'MapSeven.Calendar:CalendarMixin': true
   ui:
     label: 'Calendar View'
-    group: 'calendar'
-    icon: 'icon-calendar'
+    group: calendar
+    icon: icon-calendar
     inspector:
       groups:
-        'settings':
+        settings:
           label: 'Calendar Settings'
-
 'MapSeven.Calendar:List':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'MapSeven.Calendar:CalendarMixin'
+    'TYPO3.Neos:Content': true
+    'MapSeven.Calendar:CalendarMixin': true
   ui:
     label: 'Calendar List'
-    group: 'calendar'
-    icon: 'icon-calendar'
+    group: calendar
+    icon: icon-calendar
     inspector:
       groups:
-        'settings':
+        settings:
           label: 'Calendar Settings'
   properties:
     maxResults:
       type: string
       defaultValue: ''
       ui:
-        label: 'maxResults'
-        reloadIfChanged: TRUE
+        label: maxResults
+        reloadIfChanged: true
         inspector:
-          group: 'settings'
+          group: settings
     maxDays:
       type: string
       defaultValue: ''
       ui:
-        label: 'maxDays'
-        reloadIfChanged: TRUE
+        label: maxDays
+        reloadIfChanged: true
         inspector:
-          group: 'settings'
+          group: settings
     orderBy:
       type: string
-      defaultValue: 'startTime'
+      defaultValue: startTime
       ui:
-        label: 'Sorting'
-        reloadIfChanged: TRUE
+        label: Sorting
+        reloadIfChanged: true
         inspector:
-          group: 'settings'
+          group: settings
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
-              'startTime':
-                label: 'Starttime'
-              'updated':
-                label: 'Updated'
-
+              startTime:
+                label: Starttime
+              updated:
+                label: Updated
 'MapSeven.Calendar:CalendarMixin':
-  abstract: TRUE
+  abstract: true
   properties:
     googleCalendars:
       type: array
       ui:
         label: 'Google Calendars'
         inspector:
-          group: 'settings'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          group: settings
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
-            dataSourceIdentifier: 'mapseven-calendar'
+            dataSourceIdentifier: mapseven-calendar
