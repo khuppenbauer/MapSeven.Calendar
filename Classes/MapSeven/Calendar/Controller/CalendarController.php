@@ -63,13 +63,14 @@ class CalendarController extends ActionController {
 				$events = $service->events->listEvents($googleCalendar, $optParams);
 				foreach ($events as $event) {
 					$timestamp = strtotime($event['start']['dateTime']);
-					$eventsArray[$timestamp]['summary'] = $event['summary'];
-					$eventsArray[$timestamp]['dateTime'] = $event['start']['dateTime'];
+					$eventsArray[$timestamp][$event['id']]['summary'] = $event['summary'];
+					$eventsArray[$timestamp][$event['id']]['dateTime'] = $event['start']['dateTime'];
 				}
 			}
 		}
 
 		ksort($eventsArray);
+		$eventsArray= call_user_func_array('array_merge', $eventsArray);
 		if (!empty($properties['maxResults'])) {
 			array_splice($eventsArray, $properties['maxResults']);
 		}
