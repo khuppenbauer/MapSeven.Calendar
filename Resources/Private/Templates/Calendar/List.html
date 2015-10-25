@@ -2,7 +2,14 @@
 <ul>
     <f:for each="{events}" as="event">
         <li>
-            {event.dateTime -> f:format.date(localeFormatType: 'dateTime', forceLocale: 'de_DE')} {event.summary}
+            <f:if condition="{event.dateTime}">
+                <f:then>
+                    {event.dateTime -> f:format.date(localeFormatType: 'dateTime', forceLocale: 'de_DE')} {event.summary}
+                </f:then>
+                <f:else>
+                    {event.start -> f:format.date(localeFormatType: 'date', forceLocale: 'de_DE')}<f:if condition="{event.end}"> - {event.end -> f:format.date(localeFormatType: 'date', forceLocale: 'de_DE')}</f:if> {event.summary}
+                </f:else>
+            </f:if>
         </li>
     </f:for>
 </ul>

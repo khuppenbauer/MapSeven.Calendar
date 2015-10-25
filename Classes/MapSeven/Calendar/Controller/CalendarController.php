@@ -62,9 +62,20 @@ class CalendarController extends ActionController {
 			foreach ($properties['googleCalendars'] as $googleCalendar) {
 				$events = $service->events->listEvents($googleCalendar, $optParams);
 				foreach ($events as $event) {
+					if (!empty($event['start']['dateTime'])) {
 					$timestamp = strtotime($event['start']['dateTime']);
-					$eventsArray[$timestamp][$event['id']]['summary'] = $event['summary'];
 					$eventsArray[$timestamp][$event['id']]['dateTime'] = $event['start']['dateTime'];
+					} elseif (!empty($event['start']['date'])) {
+						$event['end']['date'] = date('Y-m-d', strtotime($event['end']['date'] . ' -1 day'));
+						$timestamp = strtotime($event['start']['date']);
+						$eventsArray[$timestamp][$event['id']]['start'] = $event['start']['date'];
+						if ($event['start']['date'] !== $event['end']['date']) {
+							$eventsArray[$timestamp][$event['id']]['end'] = $event['end']['date'];
+						}
+					}
+					if (isset($timestamp)) {
+						$eventsArray[$timestamp][$event['id']]['summary'] = $event['summary'];
+					}
 				}
 			}
 		}
