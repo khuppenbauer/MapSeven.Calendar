@@ -21,75 +21,78 @@ use TYPO3\Neos\Controller\Module\AbstractModuleController;
  *
  * @package MapSeven\Calendar\Controller\Module\Management
  */
-class CalendarController extends AbstractModuleController {
+class CalendarController extends AbstractModuleController
+{
 
-	/**
-	 * @Flow\Inject
-	 * @var ConfigurationManager
-	 */
-	protected $configurationManager;
+    /**
+     * @Flow\Inject
+     * @var ConfigurationManager
+     */
+    protected $configurationManager;
 
-	/**
-	 * @Flow\Inject
-	 * @var YamlSource
-	 */
-	protected $configurationSource;
+    /**
+     * @Flow\Inject
+     * @var YamlSource
+     */
+    protected $configurationSource;
 
-	/**
-	 * @Flow\Inject
-	 * @var PackageManagerInterface
-	 */
-	protected $packageManager;
+    /**
+     * @Flow\Inject
+     * @var PackageManagerInterface
+     */
+    protected $packageManager;
 
-	/**
-	 * The settings parsed from Settings.yaml
-	 *
-	 * @var array
-	 */
-	protected $settings;
+    /**
+     * The settings parsed from Settings.yaml
+     *
+     * @var array
+     */
+    protected $settings;
 
 
-	/**
-	 * Inject settings
-	 *
-	 * @param array $settings
-	 * @return void
-	 */
-	public function injectSettings(array $settings) {
-		$this->settings = $settings;
-	}
+    /**
+     * Inject settings
+     *
+     * @param array $settings
+     * @return void
+     */
+    public function injectSettings(array $settings)
+    {
+        $this->settings = $settings;
+    }
 
-	/**
-	 * A edit view for the global calendar settings
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		$this->view->assignMultiple(array(
-			'calendarSettings' => $this->settings
-		));
-	}
+    /**
+     * A edit view for the global calendar settings
+     *
+     * @return void
+     */
+    public function indexAction()
+    {
+        $this->view->assignMultiple(array(
+            'calendarSettings' => $this->settings
+        ));
+    }
 
-	/**
-	 * Update global Calendar settings
-	 *
-	 * @param array $calendar
-	 * @return void
-	 */
-	public function updateAction(array $calendar) {
-		if (!empty($calendar['keyFile'])) {
-			$calendar['keyFileName'] = $calendar['keyFile']['name'];
-			$finalTargetPathAndFilename = $this->settings['keyFilePath'] . $calendar['keyFile']['name'];
-			Files::createDirectoryRecursively($this->settings['keyFilePath']);
-			move_uploaded_file($calendar['keyFile']['tmp_name'], $finalTargetPathAndFilename);
-			unset($calendar['keyFile']);
-		}
+    /**
+     * Update global Calendar settings
+     *
+     * @param array $calendar
+     * @return void
+     */
+    public function updateAction(array $calendar)
+    {
+        if (!empty($calendar['keyFile'])) {
+            $calendar['keyFileName'] = $calendar['keyFile']['name'];
+            $finalTargetPathAndFilename = $this->settings['keyFilePath'] . $calendar['keyFile']['name'];
+            Files::createDirectoryRecursively($this->settings['keyFilePath']);
+            move_uploaded_file($calendar['keyFile']['tmp_name'], $finalTargetPathAndFilename);
+            unset($calendar['keyFile']);
+        }
 
-		$settings = $this->configurationSource->load(FLOW_PATH_CONFIGURATION . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS);
-		$settings = Arrays::setValueByPath($settings, 'MapSeven.Calendar', $calendar);
-		$this->configurationSource->save(FLOW_PATH_CONFIGURATION . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, $settings);
-		$this->configurationManager->flushConfigurationCache();
-		$this->redirect('index');
-	}
-
+        $settings = $this->configurationSource->load(FLOW_PATH_CONFIGURATION . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS);
+        $settings = Arrays::setValueByPath($settings, 'MapSeven.Calendar', $calendar);
+        $this->configurationSource->save(FLOW_PATH_CONFIGURATION . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, $settings);
+        $this->configurationManager->flushConfigurationCache();
+        $this->redirect('index');
+    }
 }
