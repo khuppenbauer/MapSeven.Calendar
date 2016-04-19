@@ -79,11 +79,12 @@ class CalendarController extends ActionController {
 				}
 			}
 		}
-
-		ksort($eventsArray);
-		$eventsArray= call_user_func_array('array_merge', $eventsArray);
-		if (!empty($properties['maxResults'])) {
-			array_splice($eventsArray, $properties['maxResults']);
+		if (!empty($eventsArray)) {
+			ksort($eventsArray);
+			$eventsArray= call_user_func_array('array_merge', $eventsArray);
+			if (!empty($properties['maxResults'])) {
+				array_splice($eventsArray, $properties['maxResults']);
+			}
 		}
 		$this->view->assign('events', $eventsArray);
 	}
