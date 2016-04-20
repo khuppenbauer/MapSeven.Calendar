@@ -1,7 +1,9 @@
 {
     "name": "mapseven/calendar",
     "type": "typo3-flow-plugin",
-    "description": "Simple Calendar plugin for TYPO3 Neos with fullcalendar as frontend and Google Calendar as backend",
+    "description": "Simple Calendar plugin for NeosCMS with FullCalendar as frontend and Google Calendar as backend",
+    "keywords": ["FullCalendar","Google Calendar","NeosCMS"],
+    "license": "MIT",
     "require": {
         "typo3/flow": "*",
         "google/apiclient": "~1.1"
