@@ -23,7 +23,7 @@ TYPO3:
                 title: 'Configure calendar'
 MapSeven:
   Calendar:
-    keyFilePath: %FLOW_PATH_DATA%Persistent/GoogleApiKey/
+    keyFilePath: '%FLOW_PATH_DATA%Persistent/GoogleApiKey/'
     googleApiKey: null
     emailAddress: null
     keyFileName: null
