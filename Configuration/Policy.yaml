@@ -1,12 +1,12 @@
 
 privilegeTargets:
-  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     MapSeven_Calendar_Calendar:
       matcher: method(MapSeven\Calendar\Controller\CalendarController->(list)Action())
     MapSeven_Calendar_Backend_Module_Management_Calendar:
       matcher: method(MapSeven\Calendar\Controller\Module\Management\CalendarController->(index|update)Action())
 roles:
-  'TYPO3.Flow:Everybody':
+  'Neos.Flow:Everybody':
     privileges:
       -
         privilegeTarget: MapSeven_Calendar_Calendar

@@ -12,8 +12,8 @@ namespace MapSeven\Calendar\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Mvc\Controller\ActionController;
 use Google_Client;
 use Google_Auth_AssertionCredentials;
 use Google_Service_Calendar;
