@@ -1,4 +1,4 @@
-namespace: TypoScript=TYPO3.TypoScript
+namespace: TypoScript=Neos.Fusion
 
 prototype(TYPO3.Neos:Page) {
 	head.stylesheets.calendar = TypoScript:Template {
