@@ -3,7 +3,7 @@ namespace MapSeven\Calendar\DataSource;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Neos\Service\DataSource\AbstractDataSource;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 use Google_Client;
 use Google_Auth_AssertionCredentials;
 use Google_Service_Calendar;
