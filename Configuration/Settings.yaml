@@ -7,9 +7,6 @@ MapSeven:
     keyFileName: null
 Neos:
   Neos:
-    typoScript:
-      autoInclude:
-        MapSeven.Calendar: true
     nodeTypes:
       groups:
         calendar:
@@ -27,3 +24,6 @@ Neos:
               index:
                 label: 'Configure calendar'
                 title: 'Configure calendar'
+    fusion:
+      autoInclude:
+        MapSeven.Calendar: true
