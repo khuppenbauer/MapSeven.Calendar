@@ -14,7 +14,7 @@ use Neos\Utility\Arrays;
 use Neos\Flow\Http\Client\Browser;
 use Neos\Flow\Http\Client\CurlEngine;
 use Neos\Utility\Files;
-use TYPO3\Neos\Controller\Module\AbstractModuleController;
+use Neos\Neos\Controller\Module\AbstractModuleController;
 
 /**
  * Calendar Management Module Controller

@@ -1,7 +1,7 @@
 
 'MapSeven.Calendar:Calendar':
   superTypes:
-    'TYPO3.Neos:Content': true
+    'Neos.Neos:Content': true
     'MapSeven.Calendar:CalendarMixin': true
   ui:
     label: 'Calendar View'
@@ -13,7 +13,7 @@
           label: 'Calendar Settings'
 'MapSeven.Calendar:List':
   superTypes:
-    'TYPO3.Neos:Content': true
+    'Neos.Neos:Content': true
     'MapSeven.Calendar:CalendarMixin': true
   ui:
     label: 'Calendar List'
@@ -64,6 +64,6 @@
         label: 'Google Calendars'
         inspector:
           group: settings
-          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             dataSourceIdentifier: mapseven-calendar

@@ -1,5 +1,11 @@
 
-TYPO3:
+MapSeven:
+  Calendar:
+    keyFilePath: '%FLOW_PATH_DATA%Persistent/GoogleApiKey/'
+    googleApiKey: null
+    emailAddress: null
+    keyFileName: null
+Neos:
   Neos:
     typoScript:
       autoInclude:
@@ -21,9 +27,3 @@ TYPO3:
               index:
                 label: 'Configure calendar'
                 title: 'Configure calendar'
-MapSeven:
-  Calendar:
-    keyFilePath: '%FLOW_PATH_DATA%Persistent/GoogleApiKey/'
-    googleApiKey: null
-    emailAddress: null
-    keyFileName: null
