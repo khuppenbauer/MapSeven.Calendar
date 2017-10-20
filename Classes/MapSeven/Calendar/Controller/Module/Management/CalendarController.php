@@ -10,10 +10,10 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Configuration\ConfigurationManager;
 use Neos\Flow\Configuration\Source\YamlSource;
 use Neos\Flow\Package\PackageManagerInterface;
-use Neos\Flow\Utility\Arrays;
+use Neos\Utility\Arrays;
 use Neos\Flow\Http\Client\Browser;
 use Neos\Flow\Http\Client\CurlEngine;
-use Neos\Flow\Utility\Files;
+use Neos\Utility\Files;
 use TYPO3\Neos\Controller\Module\AbstractModuleController;
 
 /**
