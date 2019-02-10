@@ -1,7 +1,6 @@
-namespace: TypoScript=Neos.Fusion
 
 prototype(Neos.Neos:Page) {
-	head.stylesheets.calendar = TypoScript:Template {
+	head.stylesheets.calendar = Neos.Fusion:Template {
 		templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
 		sectionName = 'stylesheets'
 
@@ -9,7 +8,7 @@ prototype(Neos.Neos:Page) {
 		@position = 'end'
 	}
 
-	body.javascripts.calendar = TypoScript:Template {
+	body.javascripts.calendar = Neos.Fusion:Template {
 		templatePath = 'resource://MapSeven.Calendar/Private/Templates/Page/Default.html'
 		sectionName = 'bodyScripts'
 
